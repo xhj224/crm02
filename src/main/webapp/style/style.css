@@ -1,0 +1,79 @@
+body {
+	text-align: center;
+}
+
+#container {
+	text-align: center;
+}
+
+h1, h3 {
+	text-align: center;
+}
+
+span.ip, span.time {
+	color: red;
+}
+
+p.test {
+	color: red;
+	font-size: 20px;
+}
+
+table {
+	border-collapse: collapse;
+	margin: auto;
+}
+
+table.register {
+	margin: auto;
+	text-align: center;
+}
+
+table.registerConfirm {
+	margin: auto;
+	text-align: center;
+	width: 500px;
+}
+
+table.registerConfirm th {
+	background-color: red;
+	color: white;
+	width: 100px;
+}
+
+table.register textarea {
+	width: 450px;
+	height: 100px;
+}
+
+th, td {
+	border: 1px solid #000000;
+	padding: 3px 1px;
+}
+
+table.register th {
+	background-color: red;
+	color: white;
+	width: 100px;
+}
+
+table.login {
+	margin: auto;
+}
+
+table.login th {
+	background-color: red;
+	color: white;
+	width: 100px;
+}
+
+p {
+	text-align: center;
+}
+
+p.body {
+	text-align: center;
+	margin: auto;
+	line-height: 400px;
+	border: 1px solid #000000;
+}

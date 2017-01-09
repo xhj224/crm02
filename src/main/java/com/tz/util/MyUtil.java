@@ -1,5 +1,6 @@
 package com.tz.util;
 
+import javax.servlet.http.Cookie;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
