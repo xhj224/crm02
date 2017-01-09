@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import javax.annotation.Resource;
 
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(value = "classpath:applicationContext.xml")
 public class TestUserDaoImpl extends AbstractTestNGSpringContextTests {
     @Resource
     private IUserDao userDao;

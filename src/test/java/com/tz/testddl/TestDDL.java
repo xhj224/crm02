@@ -1,4 +1,4 @@
-package com.tz.testDDL;
+package com.tz.testddl;
 
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
@@ -15,14 +15,14 @@ import javax.annotation.Resource;
  * Date: 2016/12/10 19:59.
  * Project: crm01.
  */
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(value = "classpath:applicationContext.xml")
 public class TestDDL extends AbstractTestNGSpringContextTests {
 
     @Resource
     private LocalSessionFactoryBean lsfb;
 
     @Test
-    public void testDDl() {
+    public void testDDL() {
         Configuration cfg = lsfb.getConfiguration();
         SchemaExport export = new SchemaExport(cfg);
         export.create(true, true);

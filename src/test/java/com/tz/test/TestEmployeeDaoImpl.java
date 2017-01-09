@@ -11,7 +11,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-@ContextConfiguration(classes = AppConfig.class)
+@ContextConfiguration(value = "classpath:applicationContext.xml")
 public class TestEmployeeDaoImpl extends AbstractTestNGSpringContextTests {
 
     @Resource
