@@ -1,24 +1,32 @@
 package com.tz.user.dao.impl;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-
 import com.tz.entity.User;
 import com.tz.user.dao.IUserDao;
-import com.tz.util.HibernateTemplates;
-import com.tz.util.IHibernateCallBack;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
+@Repository
+@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
 public class UserDaoImpl implements IUserDao {
+    @Resource
+    private SessionFactory sessionFactory;
 
-	@Override
-	public User selectUser(final String username, final String password) {
-		return (User) HibernateTemplates.execute(new IHibernateCallBack() {
-			@Override
-			public Object execute(Session ses) throws HibernateException {
-				return ses.createQuery("from User where username=:username and password=:password")
-						.setString("username", username).setString("password", password).uniqueResult();
-			}
-		});
-	}
+    private Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
+
+    @Override
+    public User selectUser(final String username, final String password) {
+
+        String hql = "from User where username=:username and password=:password";
+        return (User) getSession().createQuery(hql).setString("username", username).setString("password", password).uniqueResult();
+
+    }
 
 }

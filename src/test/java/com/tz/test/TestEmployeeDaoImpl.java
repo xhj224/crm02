@@ -1,17 +1,22 @@
 package com.tz.test;
 
+import com.tz.AppConfig;
 import com.tz.emp.dao.IEmployeeDao;
 import com.tz.entity.Employee;
-import com.tz.util.BeanFactory;
 import com.tz.util.DateUtil;
-import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.Test;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestEmployeeDaoImpl {
+@ContextConfiguration(classes = AppConfig.class)
+public class TestEmployeeDaoImpl extends AbstractTestNGSpringContextTests {
 
-    private IEmployeeDao employeeDao = (IEmployeeDao) BeanFactory.getBean("employeeDao");
+    @Resource
+    private IEmployeeDao employeeDao;
 
     @Test
     public void testSelectAllEmps() {
@@ -32,26 +37,25 @@ public class TestEmployeeDaoImpl {
     @Test
     public void testInsertEmp() {
         Employee employee = new Employee("jack", "总经理", 18000, DateUtil.parseString("yyyy-MM-dd", "2012-1-1"));
-        employee.setId(5L);
         boolean bool = employeeDao.insertEmp(employee);
         System.out.println(bool);
     }
 
     @Test
     public void testSelectEmpById() {
-        Employee employee = employeeDao.selectEmpById(5L);
+        Employee employee = employeeDao.selectEmpById(1L);
         System.out.println(employee);
     }
 
     @Test
     public void testSelectEmpByName() {
-        List<Employee> employees = employeeDao.selectEmpByName("r");
+        List<Employee> employees = employeeDao.selectEmpByName("j");
         System.out.println(employees);
     }
 
     @Test
     public void testSelectEmpByTitle() {
-        List<Employee> employees = employeeDao.selectEmpByTitle("总裁");
+        List<Employee> employees = employeeDao.selectEmpByTitle("总经理");
         System.out.println(employees);
     }
 

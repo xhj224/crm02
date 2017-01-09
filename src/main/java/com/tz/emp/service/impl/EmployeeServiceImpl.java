@@ -4,14 +4,16 @@ import com.tz.emp.dao.IEmployeeDao;
 import com.tz.emp.service.IEmployeeService;
 import com.tz.entity.Employee;
 import com.tz.entity.EmployeePageBean;
-import com.tz.util.BeanFactory;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class EmployeeServiceImpl implements IEmployeeService {
-
-    private IEmployeeDao employeeDao = (IEmployeeDao) BeanFactory.getBean("employeeDao");
+    @Resource
+    private IEmployeeDao employeeDao;
 
     @Override
     public List<Employee> findAllEmps() {
@@ -80,6 +82,4 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public boolean editSalaryById(Long id, double salary) {
         return employeeDao.updateSalaryById(id, salary);
     }
-
-
 }
