@@ -23,7 +23,6 @@ import java.net.URLEncoder;
 )
 public class UserAction extends HttpServlet {
     private static final String DEFAULT_ACTION = "login";
-    // private IUserService userService = (IUserService) BeanFactory.getBean("userService");
     private ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
     private IUserService userService = (IUserService) ac.getBean("userServiceImpl");
 

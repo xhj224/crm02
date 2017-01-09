@@ -31,7 +31,6 @@ import java.util.List;
 )
 public class EmpAction extends HttpServlet {
     private static final String DEFAULT_ACTION = "list";
-    // private IEmployeeService employeeService = (IEmployeeService) BeanFactory.getBean("employeeService");
     private ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
     private IEmployeeService employeeService = (IEmployeeService) ac.getBean("employeeServiceImpl");
 
@@ -104,9 +103,6 @@ public class EmpAction extends HttpServlet {
                 break;
             case "list":
             default:
-                // List<Employee> employees = employeeService.findAllEmps();
-                // req.setAttribute("employees", employees);
-                // req.getRequestDispatcher("/WEB-INF/jsp/view/emp_list_view.jsp").forward(req, resp);
                 String pageNow = req.getParameter("pageNow");
                 String pageSize = req.getParameter("pageSize");
                 System.out.println(pageNow + ":" + pageSize);
@@ -241,8 +237,6 @@ public class EmpAction extends HttpServlet {
                 break;
             case "list":
             default:
-                // List<Employee> employees = employeeService.findAllEmps();
-                // req.setAttribute("employees", employees);
                 String pageNow = req.getParameter("pageNow");
                 String pageSize = req.getParameter("pageSzie");
                 pageNow = pageNow == null ? "1" : pageNow;
