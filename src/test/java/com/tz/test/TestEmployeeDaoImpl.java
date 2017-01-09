@@ -1,6 +1,5 @@
 package com.tz.test;
 
-import com.tz.AppConfig;
 import com.tz.emp.dao.IEmployeeDao;
 import com.tz.entity.Employee;
 import com.tz.util.DateUtil;

@@ -1,6 +1,5 @@
 package com.tz.testDDL;
 
-import com.tz.AppConfig;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;

@@ -3,8 +3,9 @@ package com.tz.emp.action;
 import com.tz.emp.service.IEmployeeService;
 import com.tz.entity.Employee;
 import com.tz.entity.EmployeePageBean;
-import com.tz.util.BeanFactory;
 import com.tz.util.DateUtil;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +31,9 @@ import java.util.List;
 )
 public class EmpAction extends HttpServlet {
     private static final String DEFAULT_ACTION = "list";
-    private IEmployeeService employeeService = (IEmployeeService) BeanFactory.getBean("employeeService");
+    // private IEmployeeService employeeService = (IEmployeeService) BeanFactory.getBean("employeeService");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+    private IEmployeeService employeeService = (IEmployeeService) ac.getBean("employeeServiceImpl");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

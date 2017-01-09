@@ -1,6 +1,5 @@
 package com.tz.test;
 
-import com.tz.AppConfig;
 import com.tz.entity.User;
 import com.tz.user.dao.IUserDao;
 import org.springframework.test.context.ContextConfiguration;

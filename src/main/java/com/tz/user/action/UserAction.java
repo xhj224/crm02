@@ -2,7 +2,8 @@ package com.tz.user.action;
 
 import com.tz.entity.User;
 import com.tz.user.service.IUserService;
-import com.tz.util.BeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,9 @@ import java.net.URLEncoder;
 )
 public class UserAction extends HttpServlet {
     private static final String DEFAULT_ACTION = "login";
-    private IUserService userService = (IUserService) BeanFactory.getBean("userService");
+    // private IUserService userService = (IUserService) BeanFactory.getBean("userService");
+    private ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+    private IUserService userService = (IUserService) ac.getBean("userServiceImpl");
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
