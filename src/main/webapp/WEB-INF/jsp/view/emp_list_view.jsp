@@ -54,9 +54,9 @@
 <hr/>
 <form method="post" action="${base}/permission/emp">
     按员工入职日期查询：
-    <input id="d4311" class="Wdate" type="text"
+    <input id="d4311" class="Wdate" type="text" name="sHiredate"
            onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'d4312\')||\'%y-%M-%d\'}'})" title=""/>
-    <input id="d4312" class="Wdate" type="text"
+    <input id="d4312" class="Wdate" type="text" name="eHiredate"
            onFocus="WdatePicker({minDate:'#F{$dp.$D(\'d4311\')}',maxDate:'%y-%M-%d'})" title=""/>
     <input type="hidden" name="action" value="selectByHiredate">
     <input type="submit" value="查询">
