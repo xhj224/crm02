@@ -238,7 +238,7 @@ public class EmpAction extends HttpServlet {
             case "list":
             default:
                 String pageNow = req.getParameter("pageNow");
-                String pageSize = req.getParameter("pageSzie");
+                String pageSize = req.getParameter("pageSize");
                 pageNow = pageNow == null ? "1" : pageNow;
                 pageSize = pageSize == null ? "2" : pageSize;
                 EmployeePageBean pageBean = employeeService.pageBeanEmployees(Integer.parseInt(pageNow), Integer.parseInt(pageSize));
